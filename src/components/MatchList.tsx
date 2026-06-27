@@ -242,9 +242,9 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
             const items = [card];
             if ((i + 1) % 3 === 0) {
               items.push(
-                <div key={`ad-${i}`} style={{ textAlign: 'center', padding: '12px 0' }}>
+                <div key={`ad-${i}`} style={{ textAlign: 'center', padding: '12px 0', background: '#fff' }}>
                   <ins className="adsbygoogle"
-                       style={{ display: 'inline-block', width: 300, height: 50 }}
+                       style={{ display: 'inline-block', width: 300, height: 50, background: 'transparent' }}
                        data-ad-client={config.ads.google.client}
                        data-ad-slot={config.ads.google.slots.betweenCards300x50}></ins>
                 </div>

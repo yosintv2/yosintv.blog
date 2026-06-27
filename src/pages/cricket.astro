@@ -36,13 +36,15 @@ import { config } from '../config';
           isCricket={true}
           client:only="react"
         />
+        <div style="background:#fff;text-align:center;">
         <ins class="adsbygoogle"
-             style="display:inline-block;width:320px;height:50px"
+             style="display:inline-block;width:320px;height:50px;background:transparent;"
              data-ad-client={config.ads.google.client}
              data-ad-slot={config.ads.google.slots.betweenMatch}></ins>
         <script is:inline>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        </div>
         <LatestNews client:only="react" />
       </div>
       <Sidebar client:only="react" />
