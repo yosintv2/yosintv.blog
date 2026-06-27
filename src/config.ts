@@ -1,9 +1,9 @@
 export const config = {
-  base: '/yosintv.blog',
+  base: '',
   site: {
     name: 'YoSinTV',
     tagline: 'FIFA World Cup 2026 | Playing XI | Football News',
-    url: 'https://yosintv2.github.io/yosintv.blog',
+    url: 'https://www.yosin-tv.net',
     description: 'YoSinTV is sports website that covers all the Cricket Matches, World Cup, International/Domestic Matches, Football Matches, etc.',
     logoUrl: 'https://www.yosintv.net/logo.png',
     ogLocale: 'en_US',
