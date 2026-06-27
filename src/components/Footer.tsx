@@ -128,10 +128,12 @@ export default function Footer() {
           <div>
             <div className="yosin-footer-brand" dangerouslySetInnerHTML={{ __html: config.footer.brandHtml }} />
             <p className="yosin-footer-desc">{config.footer.description}</p>
-            <div className="yosin-footer-badge">
-              <span className="live-dot" />
-              {config.footer.badge}
-            </div>
+            {config.footer.badge && (
+              <div className="yosin-footer-badge">
+                <span className="live-dot" />
+                {config.footer.badge}
+              </div>
+            )}
             <div className="yosin-footer-social">
               <a href={config.links.social.telegram} target="_blank" rel="noopener noreferrer" aria-label="Telegram"><span dangerouslySetInnerHTML={{ __html: SVGSend }} /></a>
               <a href={config.links.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter"><span dangerouslySetInnerHTML={{ __html: SVGTwitter }} /></a>

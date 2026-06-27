@@ -73,7 +73,7 @@ export const config = {
   },
   footer: {
     description: 'YoSinTV is a sports website that covers all Cricket Matches, World Cup, International/Domestic Matches, Football Matches, and more. Stay updated with live scores, match previews, playing XI, and expert analysis.',
-    badge: 'Live Sports Coverage',
+    badge: '',
     brandHtml: 'YoSin<span>TV</span>',
     copyright: 'All rights reserved. YoSinTV does not host any media content on its servers. All streams are embedded from third-party sources.',
     sections: {
@@ -103,8 +103,10 @@ export const config = {
           { href: '/blog', label: 'Blog' },
           { href: 'https://www.yosintv.net/apk', label: 'Download APK' },
           { href: 'https://t.me/yosintvlive', label: 'Telegram Channel' },
-          { href: 'https://www.yosin-tv.net/contact-us', label: 'Contact Us' },
-          { href: 'https://www.yosin-tv.net/dmca', label: 'DMCA' },
+          { href: '/contact', label: 'Contact Us' },
+          { href: '/dmca', label: 'DMCA' },
+          { href: '/privacy-policy', label: 'Privacy Policy' },
+          { href: '/about', label: 'About Us' },
         ],
       },
     },

@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { config } from '../config';
+---
+
+<Layout title={`Contact Us - ${config.site.name}`}>
+  <div class="page-wrap">
+    <style>
+      .page-wrap { max-width: 800px; margin: 0 auto; padding: 40px 16px; }
+      h1 { font-size: 32px; font-weight: 800; color: #222; margin-bottom: 24px; }
+      p { color: #555; line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+      .contact-list { list-style: none; padding: 0; }
+      .contact-list li { padding: 12px 0; border-bottom: 1px solid #eee; color: #555; font-size: 16px; }
+      .contact-list li strong { color: #222; display: inline-block; width: 120px; }
+      .contact-list a { color: #ff0037; }
+    </style>
+    <h1>Contact Us</h1>
+    <p>Have questions, feedback, or suggestions? We'd love to hear from you. Reach out to us through any of the channels below.</p>
+    <ul class="contact-list">
+      <li><strong>Email:</strong> <a href="mailto:contact@yosin-tv.net">contact@yosin-tv.net</a></li>
+      <li><strong>Telegram:</strong> <a href={config.links.social.telegram} target="_blank" rel="noopener noreferrer">@yosintvlive</a></li>
+      <li><strong>Twitter:</strong> <a href={config.links.social.twitter} target="_blank" rel="noopener noreferrer">@yosintv</a></li>
+      <li><strong>Facebook:</strong> <a href={config.links.social.facebook} target="_blank" rel="noopener noreferrer">YoSinTV Official</a></li>
+      <li><strong>Instagram:</strong> <a href={config.links.social.instagram} target="_blank" rel="noopener noreferrer">@yosintv.official</a></li>
+    </ul>
+  </div>
+</Layout>
