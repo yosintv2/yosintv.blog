@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import ShareButtons from './ShareButtons';
 import { config } from '../config';
 
 interface Match {
@@ -15,6 +16,7 @@ interface Match {
   duration?: number;
   repeat?: string;
   details_url: string;
+  event_id?: number;
 }
 
 interface ProcessedMatch extends Match {
@@ -121,19 +123,19 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
         .ml-wrap {
           max-width: 1000px;
           margin: 0 auto;
-          padding: 0 1rem 3rem;
+          padding: 0 0.75rem 3rem;
         }
-        .ml-header { margin-bottom: 20px; }
-        .ml-header h1 { font-size: 24px; font-weight: 800; color: #222; }
-        .ml-loading, .ml-empty { text-align: center; padding: 60px 0; color: #888; font-size: 16px; }
-        .ml-empty { color: #999; }
+        .ml-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+        .ml-header h1 { font-size: 20px; font-weight: 800; color: #222; flex-shrink: 0; }
+        .ml-header .share-wrap { padding: 0; }
+        .ml-loading, .ml-empty { text-align: center; padding: 40px 0; color: #888; font-size: 15px; }
 
         .ml-league-filters {
           display: flex;
           flex-wrap: nowrap;
-          gap: 8px;
+          gap: 6px;
           justify-content: flex-start;
-          padding: 8px 4px 16px;
+          padding: 6px 2px 12px;
           overflow-x: auto;
           scrollbar-width: none;
           -webkit-overflow-scrolling: touch;
@@ -141,63 +143,63 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
         .ml-league-filters::-webkit-scrollbar { display: none; }
         .ml-filter-btn {
           flex-shrink: 0;
-          padding: 6px 16px;
+          padding: 5px 14px;
           border: 2px solid #ddd;
           border-radius: 20px;
           background: #fff;
           color: #666;
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 600;
           cursor: pointer;
-          transition: all 0.2s;
         }
-        .ml-filter-btn:hover { border-color: #ff0037; color: #ff0037; }
         .ml-filter-btn.active { background: #ff0037; border-color: #ff0037; color: #fff; }
 
         .match-card {
           display: block;
           background: #fff;
           border: 1px solid #e0e0e0;
-          border-radius: 10px;
-          padding: 14px 18px;
-          margin: 10px auto;
+          border-radius: 8px;
+          padding: 10px 12px;
+          margin: 8px auto;
           max-width: 960px;
-          width: calc(100% - 1rem);
+          width: 100%;
           text-decoration: none;
-          transition: all 0.2s;
         }
-        .match-card:hover {
-          box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-          border-color: #bbb;
-        }
-        .match-card-content { display: flex; flex-direction: column; gap: 6px; }
-        .match-row-teams { display: flex; align-items: center; gap: 8px; }
-        .match-team { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+        .match-card-content { display: flex; flex-direction: column; gap: 4px; }
+        .match-row-teams { display: flex; align-items: center; gap: 6px; }
+        .match-team { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
         .match-team.home { justify-content: flex-start; }
         .match-team.away { justify-content: flex-end; }
-        .match-team img { width: 36px; height: 36px; object-fit: contain; flex-shrink: 0; }
-        .match-team-name { font-size: 15px; font-weight: 600; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .match-center { display: flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; min-width: 90px; }
-        .match-time { font-size: 12px; font-weight: 600; color: #888; }
-        .ml-status { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 9999px; display: inline-block; min-width: 54px; text-align: center; line-height: 1.3; }
+        .match-team img { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
+        .match-team-name { font-size: 13px; font-weight: 600; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .match-center { display: flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; min-width: 70px; }
+        .match-time { font-size: 11px; font-weight: 600; color: #888; }
+        .ml-status { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 9999px; display: inline-block; min-width: 48px; text-align: center; line-height: 1.3; }
         .ml-status-countdown { background: #f0f0f0; color: #ff0037; }
         .ml-status-live { background: #ff0037; color: #fff; animation: pulse 1.2s infinite; }
         .ml-status-over { background: #eee; color: #999; }
         @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.7 } }
-        .match-league-bar { margin-top: 6px; padding-top: 6px; border-top: 1px solid #f0f0f0; }
-        .match-league-bar p { font-size: 11px; color: #999; font-weight: 500; text-align: center; }
+        .match-league-bar { margin-top: 4px; padding-top: 4px; border-top: 1px solid #f0f0f0; }
+        .match-league-bar p { font-size: 10px; color: #999; font-weight: 500; text-align: center; }
 
-        @media (max-width: 640px) {
-          .match-team-name { font-size: 13px; }
-          .match-team img { width: 28px; height: 28px; }
-          .match-team { gap: 6px; }
-          .match-center { min-width: 70px; }
-          .match-card { padding: 10px 12px; }
+        @media (min-width: 640px) {
+          .ml-wrap { padding: 0 1rem 3rem; }
+          .ml-header { margin-bottom: 20px; }
+          .ml-header h1 { font-size: 24px; }
+          .match-card { padding: 14px 18px; border-radius: 10px; }
+          .match-team { gap: 10px; }
+          .match-team img { width: 36px; height: 36px; }
+          .match-team-name { font-size: 15px; }
+          .match-center { min-width: 90px; }
+          .match-time { font-size: 12px; }
+          .ml-status { font-size: 11px; padding: 3px 10px; min-width: 54px; }
+          .match-league-bar p { font-size: 11px; }
         }
       `}</style>
 
       <div class="ml-header">
         <h1>{title}</h1>
+        <ShareButtons title={title} />
       </div>
 
       {leagues.length > 1 && (
@@ -217,7 +219,7 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
           {filtered.filter(m => m.league === lg).flatMap((m, i) => {
             const status = getStatus(m.start, m.duration);
             const card = (
-              <a key={`card-${i}`} href={m.details_url || '#'} target="_blank" rel="noopener noreferrer" class="match-card">
+              <a key={`card-${i}`} href={m.event_id ? `/match/${m.event_id}` : (m.details_url || '#')} class="match-card">
                 <div class="match-card-content">
                   <div class="match-row-teams">
                     <div class="match-team home">
@@ -242,11 +244,13 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
             const items = [card];
             if ((i + 1) % 3 === 0) {
               items.push(
-                <div key={`ad-${i}`} style={{ textAlign: 'center', padding: '12px 0', background: '#fff' }}>
+                <div key={`ad-${i}`} style={{ textAlign: 'center', padding: '8px 0', background: '#fff', minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <ins className="adsbygoogle"
-                       style={{ display: 'inline-block', width: 300, height: 50, background: 'transparent' }}
+                       style={{ display: 'block', background: 'transparent' }}
                        data-ad-client={config.ads.google.client}
-                       data-ad-slot={config.ads.google.slots.betweenCards300x50}></ins>
+                       data-ad-slot={config.ads.google.slots.betweenCards300x50}
+                       data-ad-format="auto"
+                       data-full-width-responsive="true"></ins>
                 </div>
               );
             }

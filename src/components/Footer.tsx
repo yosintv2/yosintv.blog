@@ -76,6 +76,7 @@ export default function Footer() {
         }
         .yosin-footer-social {
           display: flex;
+          flex-wrap: wrap;
           gap: 12px;
           margin-top: 16px;
         }

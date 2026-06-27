@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Sidebar from '../../components/Sidebar';
 import LatestNews from '../../components/LatestNews';
+import ShareButtons from '../../components/ShareButtons';
 import { config } from '../../config';
 
 export async function getStaticPaths() {
@@ -129,6 +130,7 @@ const readingTime = article?.content
             <div class="story-content">
               {article.content.map((p, i) => <p key={i}>{p}</p>)}
             </div>
+            <ShareButtons title={article?.title || 'Article'} client:only="react" />
             {article.labels && article.labels.length > 0 && (
               <div class="story-tags">
                 {article.labels.map((tag, i) => (

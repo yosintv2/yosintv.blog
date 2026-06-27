@@ -115,7 +115,7 @@ export default function LatestNews() {
         <h1>Latest News</h1>
         <div class="ln-meta">
           <span>📅 {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-          <span>👤 YoSinTV Staff</span>
+          <span>👤 Admin</span>
           <span>{articles.length} articles</span>
         </div>
       </div>
