@@ -152,13 +152,11 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div className="sidebar-widget" style={{ padding: 0, textAlign: 'center', background: '#fff', minHeight: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="sidebar-widget" style={{ padding: '12px 0', textAlign: 'center', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <ins className="adsbygoogle"
-             style={{ display: 'block', background: 'transparent' }}
+             style={{ display: 'inline-block', width: '300px', height: '250px', background: 'transparent' }}
              data-ad-client={adClient}
-             data-ad-slot={adSlot}
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             data-ad-slot={adSlot}></ins>
       </div>
 
       <div className="sidebar-widget">
