@@ -57,19 +57,19 @@ export const config = {
     menuItems: [
       { key: '/', label: 'Home' },
       {
-        key: 'cricket',
+        key: '#',
         label: 'Cricket',
         children: [
-          { key: '/cricket', label: 'All Cricket' },
-          { key: '/cricket', label: 'T20 World Cup 2026' },
+          { key: '/cricket.html', label: 'All Cricket' },
+          { key: '/cricket.html', label: 'T20 World Cup 2026' },
         ],
       },
       {
-        key: 'football',
+        key: '#',
         label: 'Football',
         children: [
-          { key: '/football', label: 'All Football' },
-          { key: '/football', label: 'FIFA World Cup 2026' },
+          { key: '/football.html', label: 'All Football' },
+          { key: '/football.html', label: 'FIFA World Cup 2026' },
         ],
       },
       { key: '/', label: 'Articles' },
