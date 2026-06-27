@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.yosin-tv.net',
+  site: 'https://www.yosintv.net',
   output: 'static',
   integrations: [
     react(),

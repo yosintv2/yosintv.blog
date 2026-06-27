@@ -3,7 +3,7 @@ export const config = {
   site: {
     name: 'YoSinTV',
     tagline: 'FIFA World Cup 2026 | Playing XI | Football News',
-    url: 'https://www.yosin-tv.net',
+    url: 'https://www.yosintv.net',
     description: 'YoSinTV is sports website that covers all the Cricket Matches, World Cup, International/Domestic Matches, Football Matches, etc.',
     logoUrl: 'https://www.yosintv.net/logo.png',
     ogLocale: 'en_US',
@@ -44,7 +44,7 @@ export const config = {
     apk: 'https://www.yosintv.net/apk',
     contact: '/contact',
     dmca: '/dmca',
-    rss: 'https://www.yosin-tv.net/feed/',
+    rss: 'https://www.yosintv.net/feed/',
   },
   fonts: {
     preconnect: [
