@@ -38,12 +38,12 @@ const { title = `${config.site.name} - ${config.site.tagline}`, description = co
   <script async src={`${config.ads.google.scriptUrl}?client=${config.ads.google.client}`} crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="adblock-popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:99999;justify-content:center;align-items:center;">
-    <div style="background:#fff;border-radius:12px;padding:40px 32px;max-width:400px;width:90%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
-      <div style="font-size:48px;margin-bottom:16px;">⚠️</div>
-      <h2 style="margin:0 0 8px;font-size:22px;color:#222;font-weight:800;">AdBlock Detected</h2>
-      <p style="margin:0 0 24px;font-size:15px;color:#666;line-height:1.6;">Please disable your adblocker to support our website and enjoy the best experience.</p>
-      <button onclick="document.getElementById('adblock-popup').style.display='none'" style="background:#ff0037;color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;">I've Disabled AdBlock</button>
+  <div id="adb-wrapper" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:99999;justify-content:center;align-items:center;">
+    <div class="adb-card" style="background:#fff;border-radius:12px;padding:40px 32px;max-width:400px;width:90%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+      <div style="font-size:50px;margin-bottom:15px;">🚫</div>
+      <h2 style="color:#1e293b;margin-bottom:10px;font-size:22px;font-weight:800;">Ad-blocker Detected</h2>
+      <p style="color:#64748b;margin-bottom:20px;font-size:15px;line-height:1.6;">Please disable your Ad-blocker to support our free live streaming service.</p>
+      <button onclick="window.location.reload()" style="background:#ff0037;color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;">I've disabled it, refresh</button>
     </div>
   </div>
   <div style="position:fixed;top:0;left:0;width:100%;height:1px;overflow:hidden;visibility:hidden;z-index:9999;">
@@ -69,35 +69,17 @@ const { title = `${config.site.name} - ${config.site.tagline}`, description = co
   </main>
   <Footer client:only="react" />
   <script is:inline>
-    (function(){
-      var bait = document.createElement('div');
-      bait.innerHTML = '&nbsp;';
-      bait.className = 'adsbox';
-      bait.id = 'adb-detection';
-      bait.style.position = 'absolute';
-      bait.style.left = '-9999px';
-      bait.style.width = '1px';
-      bait.style.height = '1px';
-      document.body.appendChild(bait);
-      setTimeout(function(){
-        var detected = false;
-        if (bait.offsetParent === null || bait.offsetHeight === 0) detected = true;
-        bait.remove();
-        if (!detected) {
-          var adBoxes = document.querySelectorAll('ins.adsbygoogle');
-          for (var i = 0; i < adBoxes.length; i++) {
-            if (adBoxes[i].offsetHeight === 0 || adBoxes[i].offsetParent === null) {
-              detected = true;
-              break;
-            }
-          }
-        }
-        if (detected) {
-          var el = document.getElementById('adblock-popup');
-          if (el) el.style.display = 'flex';
-        }
-      }, 2000);
-    })();
+    async function checkAdBlocker() {
+      let isBlocked = false;
+      try {
+        await fetch(new Request('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'), { method: 'HEAD', mode: 'no-cors' });
+      } catch (e) { isBlocked = true; }
+      if (isBlocked) {
+        document.getElementById('adb-wrapper').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    window.addEventListener('load', function(){ setTimeout(checkAdBlocker, 1500); });
   </script>
 </body>
 </html>
