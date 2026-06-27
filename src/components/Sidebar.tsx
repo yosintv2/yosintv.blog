@@ -19,8 +19,8 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
           gap: 24px;
         }
         .sidebar-widget {
-          background: #111;
-          border: 1px solid #222;
+          background: #fff;
+          border: 1px solid #e0e0e0;
           border-radius: 6px;
           overflow: hidden;
         }
@@ -28,11 +28,11 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
           padding: 12px 14px;
           font-size: 14px;
           font-weight: 700;
-          color: #fff;
+          color: #333;
           text-transform: uppercase;
           letter-spacing: 0.3px;
           border-bottom: 2px solid #ff0037;
-          background: #0a0a0a;
+          background: #fafafa;
         }
         .sidebar-widget-body {
           padding: 8px;
@@ -41,7 +41,7 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
           display: flex;
           gap: 10px;
           padding: 10px 8px;
-          border-bottom: 1px solid #1a1a1a;
+          border-bottom: 1px solid #eee;
           text-decoration: none;
           transition: all 0.15s;
         }
@@ -49,7 +49,7 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
           border-bottom: none;
         }
         .sidebar-post-item:hover {
-          background: rgba(255,0,55,0.05);
+          background: #fafafa;
         }
         .sidebar-post-img {
           width: 65px;
@@ -58,7 +58,7 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
           border-radius: 4px;
           object-fit: cover;
           flex-shrink: 0;
-          background: #1a1a1a;
+          background: #f0f0f0;
         }
         .sidebar-post-content {
           flex: 1;
@@ -67,7 +67,7 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
         .sidebar-post-title {
           font-size: 12px;
           font-weight: 600;
-          color: #ccc;
+          color: #444;
           line-height: 1.35;
           display: -webkit-box;
           -webkit-line-clamp: 2;
@@ -81,15 +81,15 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
         }
         .sidebar-post-date {
           font-size: 10px;
-          color: #666;
+          color: #999;
         }
         .sidebar-cat-item {
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 9px 8px;
-          border-bottom: 1px solid #1a1a1a;
-          color: #999;
+          border-bottom: 1px solid #eee;
+          color: #666;
           font-size: 13px;
           text-decoration: none;
           transition: all 0.15s;
@@ -103,8 +103,8 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
           background: rgba(255,0,55,0.03);
         }
         .sidebar-cat-count {
-          background: #1a1a1a;
-          color: #777;
+          background: #f0f0f0;
+          color: #888;
           padding: 1px 9px;
           border-radius: 10px;
           font-size: 11px;
@@ -115,7 +115,7 @@ export default function Sidebar({ categories, recentPosts }: SidebarProps) {
           text-align: center;
         }
         .sidebar-cta h3 {
-          color: #fff;
+          color: #333;
           font-size: 14px;
           margin-bottom: 14px;
           font-weight: 700;

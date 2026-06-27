@@ -1,14 +1,13 @@
 :root {
-  --primary: #0a0402;
-  --primary-light: #1a0a08;
+  --primary: #fff;
   --accent: #ff0037;
   --accent-hover: #e0002f;
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --bg-dark: #0d0d0d;
-  --bg-card: #111;
-  --bg-card-hover: #1a1a1a;
-  --border-color: #222;
+  --text-primary: #222;
+  --text-secondary: #666;
+  --bg: #fff;
+  --bg-card: #fff;
+  --bg-card-hover: #fafafa;
+  --border-color: #e0e0e0;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -24,14 +23,14 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg-dark);
+  background: var(--bg);
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: #ccc;
+  color: #555;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -50,11 +49,11 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
+  background: #ccc;
   border-radius: 4px;
 }
 
@@ -99,7 +98,7 @@ img {
 }
 
 .ant-carousel .slick-dots li button {
-  background: rgba(255,255,255,0.3) !important;
+  background: rgba(0,0,0,0.15) !important;
   height: 4px !important;
   border-radius: 2px !important;
 }

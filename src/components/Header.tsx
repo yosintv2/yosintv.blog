@@ -63,12 +63,12 @@ export default function Header() {
           position: sticky;
           top: 0;
           z-index: 1000;
-          background: linear-gradient(135deg, #0a0402 0%, #1a0a08 100%);
+          background: #fff;
           border-bottom: 2px solid #ff0037;
           transition: all 0.3s ease;
         }
         .yosin-header.scrolled {
-          box-shadow: 0 4px 20px rgba(255, 0, 55, 0.15);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         .yosin-header-inner {
           display: flex;
@@ -85,27 +85,7 @@ export default function Header() {
           gap: 10px;
           cursor: pointer;
         }
-        .yosin-logo-icon {
-          width: 36px;
-          height: 36px;
-          background: linear-gradient(135deg, #ff0037, #ff6b35);
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 800;
-          font-size: 14px;
-          color: #fff;
-        }
-        .yosin-logo-text {
-          font-size: 22px;
-          font-weight: 800;
-          color: #fff;
-          letter-spacing: -0.5px;
-        }
-        .yosin-logo-text span {
-          color: #ff0037;
-        }
+
         .yosin-nav {
           display: none;
           flex: 1;
@@ -254,8 +234,7 @@ export default function Header() {
       <header className={`yosin-header ${scrolled ? 'scrolled' : ''}`}>
         <div className="yosin-header-inner">
           <div className="yosin-logo" onClick={() => window.location.href = '/'}>
-            <div className="yosin-logo-icon">YT</div>
-            <div className="yosin-logo-text">YoSin<span>TV</span></div>
+            <img src="https://www.yosintv.net/logo.png" alt="YoSinTV" style={{ height: 36, width: 'auto' }} />
           </div>
 
           <nav className="yosin-nav">
@@ -306,13 +285,8 @@ export default function Header() {
 
       <Drawer
         title={
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#fff' }}>
-            <div style={{
-              width: 32, height: 32, background: 'linear-gradient(135deg, #ff0037, #ff6b35)',
-              borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontWeight: 800, fontSize: 12, color: '#fff'
-            }}>YT</div>
-            <span style={{ fontWeight: 700, fontSize: 18 }}>YoSin<span style={{ color: '#ff0037' }}>TV</span></span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <img src="https://www.yosintv.net/logo.png" alt="YoSinTV" style={{ height: 28, width: 'auto' }} />
           </div>
         }
         placement="right"
