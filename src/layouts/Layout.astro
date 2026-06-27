@@ -1,0 +1,45 @@
+---
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title = 'YoSinTV - FIFA World Cup 2026 | Playing XI | Football News', description = 'YoSinTV is sports website that covers all the Cricket Matches, World Cup, International/Domestic Matches, Football Matches, etc.', image } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://www.yosin-tv.net" />
+  <meta property="og:site_name" content="YoSinTV" />
+  <meta name="twitter:card" content="summary_large_image" />
+  {image && <meta property="og:image" content={image} />}
+  <meta name="robots" content="follow, index" />
+  <link rel="canonical" href="https://www.yosin-tv.net" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="alternate" type="application/rss+xml" title="YoSinTV &raquo; Feed" href="https://www.yosin-tv.net/feed/" />
+</head>
+<body>
+  <Header client:only="react" />
+  <main>
+    <slot />
+  </main>
+  <Footer client:only="react" />
+</body>
+</html>
