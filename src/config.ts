@@ -8,7 +8,7 @@ export const config = {
     ogLocale: 'en_US',
     twitterCard: 'summary_large_image',
     robots: 'follow, index',
-    favicon: '/favicon.ico',
+    favicon: 'https://cdn.bio.link/uploads/profile_pictures/2024-06-12/cITldnIcB9Nq7SSUDcZegs3lRiCxS1vJ.png',
     locale: 'en-US',
   },
   api: {
