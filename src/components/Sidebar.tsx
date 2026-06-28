@@ -143,10 +143,10 @@ export default function Sidebar() {
 
       <div className="sidebar-widget">
         <div className="sidebar-cta">
-          <a className="sidebar-cta-btn apk" href={apkUrl} target="_blank" rel="noopener noreferrer">
+          <a className="sidebar-cta-btn apk" href={apkUrl}>
             Download APK
           </a>
-          <a className="sidebar-cta-btn telegram" href={telegramUrl} target="_blank" rel="noopener noreferrer">
+          <a className="sidebar-cta-btn telegram" href={telegramUrl}>
             Join Telegram
           </a>
         </div>

@@ -120,7 +120,7 @@ export default function LeagueGrid() {
 
       <div class="league-list">
         {data?.matches.map((m, i) => (
-          <a key={i} href={m.link} target="_blank" rel="noopener noreferrer" class="league-item">
+          <a key={i} href={m.link} class="league-item">
             <img src={m.image} alt={m.name} loading="lazy" />
             <span>{m.name}</span>
             <span class="arrow">→</span>

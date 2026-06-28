@@ -55,6 +55,7 @@ export const config = {
   },
   nav: {
     menuItems: [
+      { key: '/', label: 'Home' },
       {
         key: '#',
         label: 'Cricket',

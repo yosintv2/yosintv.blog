@@ -84,8 +84,7 @@ export default function ShareButtons({ title, url }: Props) {
         <a
           key={s.name}
           href={s.href}
-          target="_blank"
-          rel="noopener noreferrer"
+
           class="share-btn"
           style={{ background: s.color }}
           title={`Share on ${s.name}`}
