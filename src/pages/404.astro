@@ -6,12 +6,57 @@ const home = '/';
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 - Page Not Found</title>
-  <meta http-equiv="refresh" content="0;url=/">
-  <script>window.location.replace("/");</script>
+  <meta http-equiv="refresh" content="5;url=/">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fff;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .container { text-align: center; max-width: 480px; }
+    .code { font-size: 96px; font-weight: 800; color: #ff0037; line-height: 1; margin-bottom: 8px; }
+    .title { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .desc { font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 24px; }
+    .countdown { font-size: 13px; color: #999; }
+    .countdown span { color: #ff0037; font-weight: 700; }
+    .btn {
+      display: inline-block;
+      background: #ff0037;
+      color: #fff;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="/">homepage</a>...</p>
+  <div class="container">
+    <div class="code">404</div>
+    <div class="title">Page not found</div>
+    <div class="desc">The page you're looking for doesn't exist or has been moved.</div>
+    <a href="/" class="btn">Go Home</a>
+    <div class="countdown">Redirecting to homepage in <span id="timer">5</span> seconds...</div>
+  </div>
+  <script>
+    let sec = 5;
+    const el = document.getElementById('timer');
+    const interval = setInterval(() => {
+      sec--;
+      if (el) el.textContent = sec;
+      if (sec <= 0) { clearInterval(interval); window.location.href = '/'; }
+    }, 1000);
+  </script>
 </body>
 </html>
