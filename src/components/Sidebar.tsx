@@ -32,8 +32,6 @@ export default function Sidebar() {
   const resolvePath = (path: string) => config.base ? config.base + path : path;
   const apkUrl = config.links.apk;
   const telegramUrl = config.links.social.telegram;
-  const adClient = config.ads.google.client;
-  const adSlot = config.ads.google.slots.sidebar300x250;
   const articleList = articles.slice(0, 6);
 
   return (
@@ -150,15 +148,6 @@ export default function Sidebar() {
             Join Telegram
           </a>
         </div>
-      </div>
-
-      <div className="sidebar-widget" style={{ padding: '12px 0', textAlign: 'center', background: '#fff', minHeight: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-        <ins className="adsbygoogle"
-             style={{ display: 'block', background: 'transparent' }}
-             data-ad-client={adClient}
-             data-ad-slot={adSlot}
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
       </div>
 
       <div className="sidebar-widget">
