@@ -63,12 +63,12 @@ const redirectUrl = match.details_url || 'https://web.getemoji.online/?yosintv='
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-redirect={redirectUrl}>
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url={redirectUrl}" />
+  <meta http-equiv="refresh" content={`0; url=${redirectUrl}`} />
   <title>Redirecting...</title>
-  <script>window.location.replace("{redirectUrl}");</script>
+  <script>window.location.replace(document.documentElement.dataset.redirect);</script>
 </head>
 <body>
   <p>Redirecting to <a href={redirectUrl}>{redirectUrl}</a>...</p>
