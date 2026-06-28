@@ -53,7 +53,7 @@ const readingTime = article?.content
       display: grid;
       grid-template-columns: 1fr;
       gap: 32px;
-      padding-bottom: 60px;
+      padding-bottom: 0;
     }
     .story-article {
       background: #fff;
@@ -149,7 +149,7 @@ const readingTime = article?.content
 
       <Sidebar client:only="react" />
     </div>
-    <div style="background:#fff;text-align:center;padding:4px 0;min-height:0;display:flex;align-items:center;justify-content:center;max-width:1200px;margin:0 auto;">
+    <div style="background:#fff;text-align:center;padding:0;min-height:0;display:flex;align-items:center;justify-content:center;max-width:1200px;margin:0 auto;">
       <ins class="adsbygoogle"
            style="display:block;background:transparent;"
            data-ad-client={config.ads.google.client}

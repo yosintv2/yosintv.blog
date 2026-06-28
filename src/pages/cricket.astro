@@ -20,7 +20,7 @@ import { config } from '../config';
         display: grid;
         grid-template-columns: 1fr;
         gap: 32px;
-        padding: 24px 0 60px;
+        padding: 24px 0 0;
         min-width: 0;
       }
       .content-sidebar-layout > * {
@@ -44,7 +44,7 @@ import { config } from '../config';
       </div>
       <Sidebar client:only="react" />
     </div>
-    <div style="background:#fff;text-align:center;padding:4px 0;min-height:0;display:flex;align-items:center;justify-content:center;max-width:1200px;margin:0 auto;">
+    <div style="background:#fff;text-align:center;padding:0;min-height:0;display:flex;align-items:center;justify-content:center;max-width:1200px;margin:0 auto;">
       <ins class="adsbygoogle"
            style="display:block;background:transparent;"
            data-ad-client={config.ads.google.client}
