@@ -65,14 +65,6 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
   }, [allMatches]);
 
   useEffect(() => {
-    if (!loading && allMatches.length > 0) {
-      try {
-        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
-      } catch {}
-    }
-  }, [loading, allMatches]);
-
-  useEffect(() => {
     setLoading(true);
     fetch(apiUrl)
       .then(r => r.json())
@@ -257,20 +249,7 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
                 </div>
               </a>
             );
-            const items = [card];
-            if ((i + 1) % 3 === 0) {
-              items.push(
-                <div key={`ad-${i}`} style={{ textAlign: 'center', padding: '8px 0', background: '#fff', minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <ins className="adsbygoogle"
-                       style={{ display: 'block', background: 'transparent' }}
-                       data-ad-client={config.ads.google.client}
-                       data-ad-slot={config.ads.google.slots.betweenCards300x50}
-                       data-ad-format="auto"
-                       data-full-width-responsive="true"></ins>
-                </div>
-              );
-            }
-            return items;
+            return [card];
           })}
         </div>
       ))}
