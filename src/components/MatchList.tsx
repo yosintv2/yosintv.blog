@@ -124,6 +124,8 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
           max-width: 1000px;
           margin: 0 auto;
           padding: 0 0.75rem 3rem;
+          min-width: 0;
+          overflow-x: hidden;
         }
         .ml-header { margin-bottom: 16px; }
         .ml-header h1 { font-size: 20px; font-weight: 800; color: #222; margin-bottom: 4px; }
