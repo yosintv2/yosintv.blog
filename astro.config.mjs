@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://www.yosintv.net',
   output: 'static',
   build: {
-    format: 'file',
+    format: 'directory',
   },
   integrations: [
     react(),
