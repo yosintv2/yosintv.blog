@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import ShareButtons from './ShareButtons';
 import { config } from '../config';
 
@@ -49,8 +49,20 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
   const [now, setNow] = useState(Date.now());
   const intervalRef = useRef<ReturnType<typeof setInterval>>();
 
-  const leagues = [...new Set(allMatches.map(m => m.league))];
-  const filtered = activeLeague === 'All' ? allMatches : allMatches.filter(m => m.league === activeLeague);
+  const leagues = useMemo(() => [...new Set(allMatches.map(m => m.league))], [allMatches]);
+  const filtered = useMemo(() => activeLeague === 'All' ? allMatches : allMatches.filter(m => m.league === activeLeague), [allMatches, activeLeague]);
+
+  const needsTick = useMemo(() => {
+    if (allMatches.length === 0) return false;
+    const nowMs = Date.now();
+    return allMatches.some(m => {
+      const start = new Date(m.start).getTime();
+      const dur = (m.duration || 2) * 3600000;
+      const end = start + dur;
+      if (isNaN(start)) return false;
+      return nowMs < end;
+    });
+  }, [allMatches]);
 
   useEffect(() => {
     if (!loading && allMatches.length > 0) {
@@ -99,9 +111,11 @@ export default function MatchList({ apiUrl, title, isCricket }: Props) {
   }, [apiUrl, isCricket]);
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => setNow(Date.now()), 1000);
+    const tick = () => setNow(Date.now());
+    const ms = needsTick ? 1000 : 30000;
+    intervalRef.current = setInterval(tick, ms);
     return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-  }, []);
+  }, [needsTick]);
 
   function getStatus(startIso: string, durationHrs?: number): { text: string; cls: string } {
     const start = new Date(startIso).getTime();
