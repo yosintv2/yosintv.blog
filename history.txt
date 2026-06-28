@@ -1,0 +1,10 @@
+=== Session: June 28, 2026 ===
+
+1. Reverted site to commit c33a7ad1 ("revert: go back to 7d00e57e")
+2. Removed Today's Matches page, nav item, and menu entry (commit a1d1c2bb)
+3. Redirected /match/* URLs to use details_url from API (commit 7200febc)
+   - MatchList.tsx: uses m.details_url first, falls back to /match/$id
+   - [event_id].astro: meta-refresh + JS redirect to match.details_url
+4. Restored Today's Matches page, nav item, and menu entry (commit c9a8954c)
+5. Disabled zoom on mobile via viewport meta tag (commit 3513ce25)
+6. Removed viewport meta tag (commit 74582bd5)
