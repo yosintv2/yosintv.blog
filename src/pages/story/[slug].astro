@@ -75,9 +75,13 @@ const readingTime = article?.content
     .story-meta {
       display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
       color: #888; font-size: 14px;
-      padding-bottom: 24px; border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 20px;
     }
     .story-meta span { display: flex; align-items: center; gap: 6px; }
+    .story-share {
+      padding: 16px 0 20px;
+      border-top: 1px solid #e0e0e0;
+    }
     .story-content {
       padding: 32px; font-size: 16px; line-height: 1.8; color: #444;
     }
@@ -126,11 +130,13 @@ const readingTime = article?.content
                 <span>👤 {article.author}</span>
                 <span>⏱ {readingTime} min read</span>
               </div>
+              <div class="story-share">
+                <ShareButtons title={article?.title || 'Article'} client:only="react" />
+              </div>
             </div>
             <div class="story-content">
               {article.content.map((p, i) => <p key={i}>{p}</p>)}
             </div>
-            <ShareButtons title={article?.title || 'Article'} client:only="react" />
             {article.labels && article.labels.length > 0 && (
               <div class="story-tags">
                 {article.labels.map((tag, i) => (

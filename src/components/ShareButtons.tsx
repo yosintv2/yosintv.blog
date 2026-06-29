@@ -62,7 +62,7 @@ export default function ShareButtons({ title, url }: Props) {
   return (
     <div class="share-wrap">
       <style>{`
-        .share-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 12px 0; }
+        .share-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .share-label { font-size: 13px; font-weight: 700; color: #444; margin-right: 4px; white-space: nowrap; }
         .share-btn {
           display: inline-flex; align-items: center; justify-content: center;
