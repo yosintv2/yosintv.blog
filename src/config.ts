@@ -34,6 +34,10 @@ export const config = {
       },
     },
   },
+  apkButton: {
+    text: 'Download YoSinTV APK',
+    url: 'https://www.yosintv.net/apk',
+  },
   links: {
     social: {
       telegram: 'https://t.me/yosintvlive',
