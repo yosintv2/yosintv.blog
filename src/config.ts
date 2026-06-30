@@ -35,10 +35,8 @@ export const config = {
     },
   },
   
-//  apkButton: {
 //    text: 'Download YoSinTV APK',
 //    url: 'https://www.yosintv.net/apk',
-//  },
   
   apkButton: {
     text: 'Track Your Upcoming Payments',
